@@ -1,4 +1,5 @@
 #include"Metadata.h"
+
 void Metadata::copy(const Metadata& other)
 {
 	this->fileSize = other.fileSize;
@@ -36,4 +37,34 @@ Metadata::Metadata(int number, double fileSize, Type typeOfFile, std::string las
 	this->typeOfFile = typeOfFile;
 	this->lastAccessed = lastAccessed;
 	this->lastModifyingMetadata = lastModifyingMetadata;
+}
+
+unsigned Metadata::getNumber()
+{
+	return number;
+}
+double Metadata::getSize()
+{
+	return fileSize;
+}
+Type Metadata::getType()
+{
+	return this->typeOfFile;
+}
+std::string Metadata::getLastAccsessed()
+{
+	return this->lastAccessed;
+}
+std::string Metadata::getlastModifyingMetadata()
+{
+	return this->lastModifyingMetadata;
+}
+
+void Metadata::setNumber(int number)
+{
+	this->number = number;
+}
+void Metadata::setType(Type type)
+{
+	this->typeOfFile = type;
 }

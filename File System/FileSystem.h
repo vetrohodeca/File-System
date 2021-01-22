@@ -2,6 +2,7 @@
 #include "HelperFunctions.cpp"
 #include<chrono>
 #include <iostream>
+#include <algorithm>
 class FileSystem
 {
 private:
@@ -16,14 +17,16 @@ public:
 	std::string pwd();
 	void cd(std::string);
 	std::string ls();
-	std::string ls(std::string directory);
-	void cat(std::string);
+	std::string ls(std::string );
+	void cat(std::vector<Node> );
 	void cp(std::string);
 	void rm(std::string);
 	void mkdir(std::string);
 	void rmdir(std::string);
 	void ln(std::string);
-	std::string(stat);
+	std::string stat(std::string file);
+	
+	void mkSymlink(std::string, std::string);
 
 	void setCurrentDirecoryBackByOnePosition();
 	bool SetCurrentDirctoryFrontByOnePosition(std::string);
@@ -31,5 +34,4 @@ public:
 	unsigned getNumberOFItmes();
 
 	int getHeight(Node* root);
-	void printFolders();
 };
