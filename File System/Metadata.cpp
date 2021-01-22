@@ -25,6 +25,15 @@ Metadata::Metadata()
 	this->number =1;
 	this-> fileSize=1;
 	this->typeOfFile= Type::directory;
-	this-> lastAccessed=time(NULL);
-	this-> lastModifyingMetadata=time(NULL);
+	this-> lastAccessed=std::string();
+	this-> lastModifyingMetadata= std::string();
+}
+
+Metadata::Metadata(int number, double fileSize, Type typeOfFile, std::string lastAccessed, std::string lastModifyingMetadata)
+{
+	this->number = number;
+	this->fileSize = fileSize;
+	this->typeOfFile = typeOfFile;
+	this->lastAccessed = lastAccessed;
+	this->lastModifyingMetadata = lastModifyingMetadata;
 }
