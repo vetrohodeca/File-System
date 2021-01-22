@@ -11,13 +11,13 @@ public:
 	Node(std::string name);
 	Node operator=(const Node& other);
 
-	void setName(std::string namme);
-	std::string getName();
+	void setName(std::string name);
+	const std::string& getName();
 
 	void setParent(Node* parent);
 	Node* getParent();
 
-	std::vector<Node*> getChildrens();
+	std::vector<Node*>& getChildrens();
 	void setChildrens(std::vector<Node*>);
 	void addChildren(Node* children);
 
@@ -30,6 +30,7 @@ private:
 	std::string name;
 	Metadata metadata;
 	std::vector<Node*> childrens;
+	std::string content;
 	Node* parent;
 	void copy(const Node& other);
 };

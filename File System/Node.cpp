@@ -5,6 +5,7 @@ Node::Node()
 	this->metadata = Metadata();
 	childrens = std::vector<Node*>();
 	parent = NULL;
+	this->content = "";
 }
 void Node::copy(const Node& other)
 {
@@ -32,7 +33,7 @@ Node Node::operator=(const Node& other)
 	return *this;
 }
 
-std::string Node::getName()
+const std::string& Node::getName()
 {	
 	return this->name;
 }
@@ -59,7 +60,7 @@ void Node::addChildren(Node* children)
 	this->childrens.push_back(children);
 }
 
-std::vector<Node*> Node::getChildrens()
+std::vector<Node*>& Node::getChildrens()
 {
 	return this->childrens;
 }
@@ -71,7 +72,12 @@ void Node::setMetadata(Metadata metadata)
 
 void Node::deleteChilderns()
 {
-	std::vector<Node*>().swap(childrens);// to free memory we swap empty vector with current vector of parents
+	for (int i = 0; i < this->getChildrens().size(); i++)
+	{
+		delete this->getChildrens()[i];
+	}
+
+	this->getChildrens().clear();
 }
 void Node::deleteChildern( std::string name) // za sega samo pravq imeto prazno
 {
@@ -80,7 +86,7 @@ void Node::deleteChildern( std::string name) // za sega samo pravq imeto prazno
 	{
 		if (this->getChildrens()[i]->getName() == name)
 		{
-			this->getChildrens()[i]=nullptr;
+			this->getChildrens().erase(this->getChildrens().begin()+i);
 		}
 	}
 	

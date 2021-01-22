@@ -18,11 +18,14 @@ int main()
 	fileSystem->rmdir("Nova papka v papkata");
 	std::cout << "folder found: " << std::boolalpha << fileSystem->SetCurrentDirctoryFrontByOnePosition("Nova papka v papkata") << std::endl;
 	std::cout << fileSystem->pwd()<<std::endl;
-	fileSystem->cd("/Root/Papka");
+	fileSystem->cd("/Root/");
+	std::cout << fileSystem->getHeight(fileSystem->getRoot())<<std::endl;
+	fileSystem->rmdir("PapkavPapkata");
+	std::cout << fileSystem->getHeight(fileSystem->getRoot())<<std::endl;
 	std::cout<<fileSystem->ls()<<std::endl;
 	std::cout<<fileSystem->pwd()<<std::endl;
-	fileSystem->rmdir("PapkavPapkata");
-	//std::cout << fileSystem->getHeight(fileSystem->getRoot());
+	std::cout << fileSystem->ls("/Root/Papka");
+	
 
 	delete fileSystem;
 	return 0;

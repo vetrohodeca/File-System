@@ -16,6 +16,7 @@ public:
 	std::string pwd();
 	void cd(std::string);
 	std::string ls();
+	std::string ls(std::string directory);
 	void cat(std::string);
 	void cp(std::string);
 	void rm(std::string);
